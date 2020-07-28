@@ -1,0 +1,21 @@
+{
+  "broker_id": "<%= scope['kafka20::broker_id'] %>",
+  "max_retention_ms": <%= @max_retention_ms %>,
+  "min_retention_ms": <%= @min_retention_ms %>,
+  "default_initial_retention": <%= @default_initial_retention %>,
+  "log_path": "/var/log/talc/talc",
+  "high_watermark": <%= @high_watermark %>,
+  "low_watermark": <%= @low_watermark %>,
+  "kafka_data_dir": "/data/kafka",
+  "kafka_home": "/opt/kafka",
+  "zookeeper": "<%= scope['kafka20::zookeeper_hosts'].join(',') %>",
+  "state_file": "/var/run/talc/state.json",
+  "debug": false,
+  "num_threads": 4,
+  "excluded_topics": [
+    "__consumer_offsets"
+  ],
+  "zk_states_path": "/talc/",
+  "all_nodes_only": <%= @all_nodes_only %>,
+  "//all_nodes_only": "master must receive consumption reports from all nodes before making changes"
+}
